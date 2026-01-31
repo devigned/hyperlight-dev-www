@@ -1,0 +1,117 @@
+# The URL the site will be built for
+base_url = "https://hyperlight-dev.org"
+title = "Hyperlight"
+description = "Hyperlight is a lightweight Virtual Machine Manager (VMM) designed to run hardware-isolated micro-VMs with single-digit millisecond cold starts."
+
+# The default language
+default_language = "en"
+
+# Theme
+theme = "adidoks"
+
+# Compile Sass files in the sass directory
+compile_sass = true
+
+# Generate feeds for the site
+generate_feeds = true
+
+# Minify HTML in production
+minify_html = true
+
+# Taxonomies
+taxonomies = [
+  {name = "authors"},
+]
+
+# Build search index
+build_search_index = true
+
+[search]
+include_title = true
+include_description = true
+include_content = true
+
+[markdown]
+
+[extra]
+# Site author
+author = "Hyperlight Contributors"
+github = "https://github.com/hyperlight-dev/hyperlight"
+twitter = ""
+email = ""
+ganalytics = ""
+
+# Not on Netlify
+is_netlify = false
+
+# HTML language
+language_code = "en-US"
+
+# Chrome theme color
+theme_color = "#0078D4"
+
+# Title settings
+title_separator = "|"
+title_addition = "Hardware-Isolated Micro-VMs"
+
+# Date format
+timeformat = "%B %d, %Y"
+timezone = "UTC"
+
+# Edit page on repository
+edit_page = true
+docs_repo = "https://github.com/hyperlight-dev/www"
+repo_branch = "main"
+
+# Math support
+math = false
+
+## Open Graph + Twitter Cards
+[extra.open]
+enable = true
+image = "hyperlight-og.png"
+twitter_site = ""
+twitter_creator = ""
+facebook_author = ""
+facebook_publisher = ""
+og_locale = "en_US"
+
+## JSON-LD Schema
+[extra.schema]
+type = "Organization"
+logo = "hyperlight-logo.png"
+github = "https://github.com/hyperlight-dev/hyperlight"
+section = "docs"
+site_links_search_box = true
+
+# Social menu
+[[extra.menu.social]]
+name = "GitHub"
+pre = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>'
+url = "https://github.com/hyperlight-dev/hyperlight"
+weight = 10
+
+[[extra.menu.social]]
+name = "Slack"
+pre = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5z"></path><path d="M20.5 10H19V8.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"></path><path d="M9.5 14c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5S8 21.33 8 20.5v-5c0-.83.67-1.5 1.5-1.5z"></path><path d="M3.5 14H5v1.5c0 .83-.67 1.5-1.5 1.5S2 16.33 2 15.5 2.67 14 3.5 14z"></path><path d="M14 14.5c0-.83.67-1.5 1.5-1.5h5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5h-5c-.83 0-1.5-.67-1.5-1.5z"></path><path d="M15.5 19H14v1.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z"></path><path d="M10 9.5C10 8.67 9.33 8 8.5 8h-5C2.67 8 2 8.67 2 9.5S2.67 11 3.5 11h5c.83 0 1.5-.67 1.5-1.5z"></path><path d="M8.5 5H10V3.5C10 2.67 9.33 2 8.5 2S7 2.67 7 3.5 7.67 5 8.5 5z"></path></svg>'
+url = "https://cloud-native.slack.com/archives/C08181YF16K"
+weight = 20
+
+# Footer
+[extra.footer]
+info = 'We are a <a href="https://www.cncf.io/projects/hyperlight/">Cloud Native Computing Foundation</a> sandbox project.'
+
+[[extra.footer.nav]]
+name = "Trademark Usage"
+url = "https://www.linuxfoundation.org/legal/trademark-usage"
+weight = 10
+
+[[extra.footer.nav]]
+name = "Terms"
+url = "https://www.linuxfoundation.org/legal/terms"
+weight = 20
+
+[[extra.footer.nav]]
+name = "Privacy Policy"
+url = "https://www.linuxfoundation.org/legal/privacy-policy"
+weight = 30
