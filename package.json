@@ -1,0 +1,16 @@
+{
+  "name": "hyperlight-website-tests",
+  "version": "1.0.0",
+  "description": "DOM tests for the Hyperlight website",
+  "private": true,
+  "scripts": {
+    "test": "bun test"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.3.13",
+    "@types/bun": "latest",
+    "cspell": "^9.6.2",
+    "linkedom": "^0.18.9",
+    "markdownlint-cli2": "^0.20.0"
+  }
+}
