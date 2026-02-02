@@ -52,7 +52,6 @@ fn main() -> Result<()> {
 
 ## Next Steps
 
-- [Build a guest binary](/docs/how-to/) — Learn to write Hyperlight guests
 - [Ecosystem](/docs/ecosystem/) — Explore Hyperlight Wasm and Nanvix
 - [Architecture](/docs/architecture/) — Understand how Hyperlight works
 - [API Documentation](https://docs.rs/hyperlight-host/latest/) — Full API reference

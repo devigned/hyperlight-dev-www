@@ -2,7 +2,7 @@ import { describe, expect, test } from "bun:test";
 import { fetchPage, fetchStatus } from "./helpers";
 
 // Known pages that may not exist yet (work in progress)
-const KNOWN_MISSING = ["/docs/how-to/", "/docs/architecture/"];
+const KNOWN_MISSING: string[] = [];
 
 describe("Internal Links", () => {
   test("homepage internal links are valid", async () => {
