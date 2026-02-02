@@ -3,7 +3,6 @@ title = "Architecture"
 description = "Hyperlight architecture and design"
 weight = 30
 sort_by = "weight"
-draft = true
 
 [extra]
 toc = true
