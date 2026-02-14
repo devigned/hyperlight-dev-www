@@ -3,18 +3,29 @@ import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 
 export default defineConfig({
-integrations: [
-starlight({
-title: 'Hyperlight',
-social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/hyperlight-dev/hyperlight' }],
-sidebar: [
-{
-label: 'Guides',
-items: [
-{ label: 'Getting Started', slug: 'guides/getting-started' },
-],
-},
-],
-}),
-],
+	site: 'https://hyperlight.org',
+	integrations: [
+		starlight({
+			title: 'Hyperlight',
+			components: {
+				Footer: './src/components/HyperlightFooter.astro'
+			},
+			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/hyperlight-dev/hyperlight' }],
+			sidebar: [
+				{
+					label: 'Guides',
+					items: [
+						{ label: 'Getting Started', slug: 'guides/getting-started' },
+					],
+				},
+				{
+					label: 'Resources',
+					items: [
+						{ label: 'Projects', slug: 'resources/projects' },
+						{ label: 'Community', slug: 'resources/community' },
+					],
+				},
+			],
+		}),
+	],
 });
