@@ -1,0 +1,69 @@
+---
+title: Hyperlight Project
+description: Build and execute hypervisor isolated applications in single digit milliseconds.
+template: splash # Remove or comment out this line to display the site sidebar on this page.
+hero:
+  tagline: Run hypervisor isolated applications in single digit milliseconds!
+  image:
+    file: ../../assets/hyperlight-logo.png
+  actions:
+    - text: Getting Started
+      link: /guides/getting-started/
+      icon: right-arrow
+    - text: Read the Hyperlight Docs
+      link: https://github.com/hyperlight-dev/hyperlight/blob/main/docs/README.md
+      icon: external
+      variant: minimal
+---
+
+import { Card, CardGrid, LinkButton } from '@astrojs/starlight/components';
+
+## Why Hyperlight?
+
+<CardGrid stagger>
+	<Card title="Ultra-Fast VM Creation" icon="rocket">
+		Create hardware-isolated single application virtual machines in 1 - 2 milliseconds. No guest OS overhead. 
+		Don't boot, just run!
+	</Card>
+	<Card title="Hypervisor-level Security" icon="seti:rust">
+		True hardware isolation via KVM, MSHV (Microsoft Hypervisor on Linux), or WHP (Windows Hypervisor Platform). 
+		OSX Hypervisor.Framework coming soon.
+	</Card>
+	<Card title="Explicit Host Interface" icon="puzzle">
+		Hyperlight guests can only call functions you explicitly expose. Zero implicit syscalls means minimal 
+		attack surface by design.
+	</Card>
+	<Card title="Multi-language Support" icon="forward-slash">
+		Run Rust, C, JavaScript, and Python, via a variety of Hyperlight guests.
+	</Card>
+	<Card title="Cross Platform & Cross Architecture" icon="open-book">
+		Works on Windows via WHP, Linux via KVM and MSHV, WSL2, and soon to support OSX via Hypervisor.Framework. 
+		Target x86 architecture with arm64 support coming soon.
+	</Card>
+	<Card title="CNCF Project" icon="heart">
+		Accepted as a CNCF Sandbox project. Active community with fortnightly meetings and Slack channel.
+	</Card>
+</CardGrid>
+
+## How is Hyperlight Different?
+Hyperlight is a new kind of runtime for running applications in hardware-isolated virtual machines. It is not a 
+traditional hypervisor, container runtime, or unikernel. Instead, it is a purpose-built runtime for running 
+single applications in VMs with minimal overhead and maximal security.
+
+The table below compares Hyperlight against other popular isolation technologies across three key dimensions: 
+cold start latency, security isolation, and compatibility with existing software.
+
+| | **Hyperlight** | **Firecracker** | **gVisor** | **Wasmtime** |
+|---|---|---|---|---|
+| **Cold Start Latency** | **~1–2 ms.** No guest OS to boot — the guest binary runs directly on the vCPU. The VM is created, memory is mapped, and execution begins at a specified instruction pointer, eliminating kernel boot entirely. | **~125 ms** from API call to guest user-space `init` (with serial console disabled and a minimal kernel). The VMM itself starts within ~6–60 ms wall-clock. Still requires booting a minimal Linux kernel inside the microVM. | **Comparable to containers** (low hundreds of ms through Docker). gVisor's Sentry starts as a user-space process with no kernel or VM boot, but container start-up overhead from Docker/containerd dominates. Raw sandbox creation is fast. | **Sub-millisecond instantiation** for pre-compiled (AOT) modules. Wasmtime is optimized for near-instant module instantiation and low-overhead host↔wasm calls, making it competitive with Hyperlight for pure cold start. |
+| **Secure Isolation** | **Hardware VM isolation (KVM / MSHV / WHP).** Each guest runs in its own VM with no guest OS, no devices, no syscalls, and no implicit host access. Only explicitly registered host functions are callable. The attack surface is minimal by design — the guest has access to a small, pre-allocated memory buffer and nothing else. Written in Rust. | **Hardware VM isolation (KVM).** Each microVM is hardware-isolated. Firecracker's minimalist design exposes only 5 emulated devices (virtio-net, virtio-block, virtio-vsock, serial, keyboard-stop). A companion "jailer" applies cgroups/namespaces and drops privileges. Seccomp filters further restrict the VMM. Written in Rust. | **User-space kernel (Sentry) written in Go.** Intercepts and re-implements all guest syscalls — no host syscall is passed through directly. The Sentry itself is restricted to a minimal set of host syscalls. Provides defense-in-depth without requiring hardware virtualization (though it can use it via the KVM platform for faster syscall interception). | **Software-based sandbox using WebAssembly's linear memory model.** Isolation is enforced at compile time through Wasm's type system and bounds-checked memory. No hardware virtualization is involved. Strong formal verification efforts are underway for Cranelift. Spectre mitigations are integrated. Security depends on the correctness of the Wasm runtime rather than a hardware boundary. |
+| **Compatibility** | **Purpose-built guests only.** Applications must be compiled specifically for Hyperlight using the Hyperlight Guest library (Rust or C via FFI). There is no guest OS, no POSIX layer, and zero syscalls available — guests interact with the host exclusively through registered function calls. This provides the strongest isolation, but existing unmodified applications cannot run without being ported. Supports Rust, C, JavaScript and Python guest languages. | **Full Linux guest OS.** Runs unmodified Linux binaries and container images. Integrates with Docker, Kubernetes (via Kata Containers), and the broader container ecosystem. Supports any language or framework that runs on Linux. The highest compatibility of the four options. | **Broad Linux syscall compatibility.** Runs most unmodified Linux containers and applications via the OCI-compatible `runsc` runtime. Integrates directly with Docker and Kubernetes. Some specialized syscalls, ioctls, or kernel features may not be supported. Compatibility is continuously expanding. | **WebAssembly guests only.** Applications must be compiled to Wasm (typically via `wasm32-wasip1` / `wasm32-wasip2`). WASI provides a growing but still evolving POSIX-like interface. Many languages can compile to Wasm (Rust, C/C++, Go, Python, JS, etc.), but not all libraries or system features are available. The ecosystem is maturing rapidly via the WASI and Component Model standards. |
+
+**In summary:** Hyperlight occupies a unique position — it delivers hardware-level VM isolation with cold start times 
+that are 1–2 orders of magnitude faster than Firecracker, because it skips booting a guest OS entirely. Compared 
+to gVisor, Hyperlight provides a stronger hardware isolation boundary rather than a user-space kernel. Compared 
+to Wasmtime, Hyperlight offers true hypervisor-enforced isolation rather than software-only sandboxing. The 
+trade-off is compatibility: Hyperlight requires purpose-built guest binaries, while Firecracker and gVisor can 
+run unmodified Linux applications and Wasmtime can run any code compiled to WebAssembly.
+
+<LinkButton href="/guides/getting-started/">Get Started with Hyperlight</LinkButton>

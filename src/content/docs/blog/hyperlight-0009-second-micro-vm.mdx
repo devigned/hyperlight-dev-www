@@ -1,0 +1,8 @@
+---
+title: "Hyperlight: Achieving 0.0009-second micro-VM execution time"
+date: 2025-02-11
+---
+
+This post walks through the demo application from [Rita Zhang](https://github.com/ritazh)'s KubeCon NA 2024 keynote, showing how Hyperlight achieves 0.0009-second average micro-VM execution time. It explores the demo app's architecture — a Rust-based web server with cold and warm VM routes — and explains how Hyperlight creates a brand-new hardware-protected micro-VM for each request, executes a guest function, and tears it down, all within sub-millisecond timeframes. Written by [Danilo Chiarlone](https://github.com/danbugs).
+
+[Read the full blog post](https://opensource.microsoft.com/blog/2025/02/11/hyperlight-creating-a-0-0009-second-micro-vm-execution-time)
