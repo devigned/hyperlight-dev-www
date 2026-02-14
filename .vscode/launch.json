@@ -1,0 +1,30 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Astro: Debug Server-Side",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "npm run dev",
+      "serverReadyAction": {
+        "pattern": "Local .+ (https?://.+)",
+        "uriFormat": "%s",
+        "action": "debugWithChrome"
+      }
+    },
+    {
+      "name": "Astro: Debug Client-Side (Chrome)",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:4321", // Adjust port if necessary
+      "webRoot": "${workspaceFolder}"
+    },
+    {
+        "name": "Astro: Debug Client-Side (Edge)",
+        "type": "msedge",
+        "request": "launch",
+        "url": "http://localhost:4321", // Adjust port if necessary
+        "webRoot": "${workspaceFolder}"
+    }
+  ]
+}
