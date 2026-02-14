@@ -1,6 +1,7 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
+import starlightBlog from 'starlight-blog';
 
 export default defineConfig({
 	site: 'https://hyperlight.org',
@@ -26,6 +27,7 @@ export default defineConfig({
 					],
 				},
 			],
+			plugins: [starlightBlog({})],
 		}),
 	],
 });

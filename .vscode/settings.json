@@ -1,0 +1,10 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "npx astro": true,
+        "/^node node_modules/\\.bin/astro build 2>&1$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "git stash": true
+    }
+}
