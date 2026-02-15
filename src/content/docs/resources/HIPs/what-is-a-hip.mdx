@@ -1,0 +1,78 @@
+---
+title: Hyperlight Improvement Proposals (HIPs)
+description: Hyperlight Improvement Proposals (HIPs) are design documents providing information to the Hyperlight community, or describing a new feature for Hyperlight or its processes or environment.
+---
+
+Hyperlight Improvement Proposals (HIPs) are design documents that describe significant enhancements to Hyperlight. They provide a consistent and controlled path for proposing substantial changes, ensuring that the community can discuss, refine, and document the motivation and design behind every major improvement.
+
+## Inspired by the Kubernetes Enhancement Proposal (KEP) Process
+
+The HIP process is largely influenced by the [Kubernetes Enhancement Proposal (KEP) process](https://github.com/kubernetes/enhancements/blob/master/keps/sig-architecture/0000-kep-process/README.md), which provides a standardized development process for enhancements in the Kubernetes ecosystem. Like KEPs, HIPs give contributors a structured way to communicate intent and build consensus before writing code.
+
+However, because Hyperlight is a smaller project with a more focused community, HIPs are intentionally lighter-weight than KEPs. They do not require the same level of metadata or formal lifecycle stages. Instead, HIPs serve two primary purposes:
+
+1. **Communication of intent** — so that maintainers and the community clearly understand what is being proposed and why.
+2. **Historical record** — so that the motivations behind significant architectural decisions are preserved for future contributors.
+
+## When Is a HIP Required?
+
+Not every change needs a HIP. Use the following guidance to decide whether your contribution should go through the HIP process.
+
+### Changes That Do **Not** Require a HIP
+
+- Bug fixes and small patches
+- Minor refactors scoped to a single module
+- Documentation improvements
+- Dependency updates
+- Test additions or improvements
+- Trivial feature enhancements that don't change APIs or architecture
+
+For these kinds of changes, open a pull request directly against the [Hyperlight repository](https://github.com/hyperlight-dev/hyperlight).
+
+### Changes That **Should** Have a HIP
+
+- Large refactoring efforts that span multiple modules
+- Significant new features or capabilities
+- Breaking changes to public APIs
+- Changes to the project's build, release, or governance processes
+- Architectural shifts that affect how Hyperlight is used or extended
+
+When in doubt, ask yourself: *"Would someone reviewing this PR benefit from a written explanation of why this change is being made and what alternatives were considered?"* If the answer is yes, write a HIP.
+
+## What Does a HIP Contain?
+
+Every HIP follows a standard template with the following sections:
+
+| Section | Purpose |
+|---|---|
+| **Summary** | A high-level overview of the enhancement, suitable for release notes or roadmap communication. |
+| **Motivation** | Why the change is important, including goals and explicit non-goals. |
+| **Proposal** | What the enhancement does at a conceptual level, including user stories, constraints, and risks. |
+| **Design Details** | The technical specifics — API designs, implementation notes, and a test plan covering unit, integration, and e2e tests. |
+| **Implementation History** | A timeline of major milestones in the HIP's lifecycle. |
+| **Drawbacks** | Honest assessment of reasons not to pursue the change. |
+| **Alternatives** | Other approaches considered and why they were ruled out. |
+
+Not every section is required in the initial draft. Start with **Summary**, **Motivation**, and **Proposal** to gather early feedback before filling in the rest.
+
+## How to Author a HIP
+
+Follow these steps to create and land a HIP:
+
+1. **Create a directory** under [`proposals/`](https://github.com/hyperlight-dev/hyperlight/tree/main/proposals) named `NNNN-hip-${hip_name}`, where `NNNN` is the next available number. For example, if `0001` is the current highest, your HIP might be `0002-hip-make-me-a-sandwich`.
+
+2. **Copy the template.** Create a `README.md` inside your new directory using the [HIP template](https://github.com/hyperlight-dev/hyperlight/blob/main/proposals/NNNN-hip-template/README.md) as a starting point.
+
+3. **Write the initial sections.** Fill out the **Summary**, **Motivation**, and **Proposal** sections first.
+
+4. **Open a draft pull request.** Socialize the proposal early and gather feedback from maintainers and the community.
+
+5. **Complete the remaining sections.** Incorporate feedback and flesh out **Design Details**, **Drawbacks**, **Alternatives**, and the rest.
+
+6. **Mark the PR as ready for review.** Remove the draft status once the proposal is complete.
+
+7. **Implement the enhancement.** After the HIP is merged, begin implementation work, referencing the HIP in related pull requests.
+
+## Existing HIPs
+
+You can browse all current proposals in the [`proposals/` directory](https://github.com/hyperlight-dev/hyperlight/tree/main/proposals) of the Hyperlight repository. The first HIP, [HIP-0000](https://github.com/hyperlight-dev/hyperlight/tree/main/proposals/0000-hip-process), defines the HIP process itself.
