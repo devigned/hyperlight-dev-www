@@ -1,50 +1,48 @@
+# Hyperlight Website
 
-# Starlight Starter Kit: Basics
+The official website for [Hyperlight](https://github.com/hyperlight-dev/hyperlight), hosted at [hyperlight.org](https://hyperlight.org). Hyperlight is a lightweight Virtual Machine Manager (VMM) designed to be embedded within applications, enabling safe execution of untrusted code within micro virtual machines with very low latency and minimal overhead.
 
-[![Built with Starlight](https://astro.badg.es/v2/built-with-starlight/tiny.svg)](https://starlight.astro.build)
+Hyperlight is a [Cloud Native Computing Foundation](https://www.cncf.io/) sandbox project.
 
-```
-npm create astro@latest -- --template starlight
-```
+## Getting Started
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+This site is built with [Astro](https://astro.build/) and the [Starlight](https://starlight.astro.build/) documentation theme.
 
-## 🚀 Project Structure
+### Prerequisites
 
-Inside of your Astro + Starlight project, you'll see the following folders and files:
+- [Node.js](https://nodejs.org/) v18 or later
 
-```
-.
-├── public/
-├── src/
-│   ├── assets/
-│   ├── content/
-│   │   └── docs/
-│   └── content.config.ts
-├── astro.config.mjs
-├── package.json
-└── tsconfig.json
+### Local Development
+
+```sh
+npm install
+npm run dev
 ```
 
-Starlight looks for `.md` or `.mdx` files in the `src/content/docs/` directory. Each file is exposed as a route based on its file name.
+The site will be available at `http://localhost:4321`.
 
-Images can be added to `src/assets/` and embedded in Markdown with a relative link.
+### Build
 
-Static assets, like favicons, can be placed in the `public/` directory.
+```sh
+npm run build
+```
 
-## 🧞 Commands
+The production build is output to `./dist/`.
 
-All commands are run from the root of the project, from a terminal:
+## Contributing
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+We welcome contributions from everyone! Whether it's fixing a typo, improving documentation, or adding new content, your help is appreciated.
 
-## 👀 Want to learn more?
+1. Fork the repository
+2. Create a branch for your changes
+3. Submit a pull request
 
-Check out [Starlight’s docs](https://starlight.astro.build/), read [the Astro documentation](https://docs.astro.build), or jump into the [Astro Discord server](https://astro.build/chat).
+Please review the [Hyperlight contributing guidelines](https://github.com/hyperlight-dev/hyperlight/blob/main/CONTRIBUTING.md) before getting started.
+
+## Code of Conduct
+
+This project follows the [CNCF Code of Conduct](https://github.com/cncf/foundation/blob/main/code-of-conduct.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to the project maintainers.
+
+## License
+
+See [LICENSE](./LICENSE) for details.
